@@ -4,6 +4,7 @@ import { ReactComponent as BGImage } from '../../assets/images/bg.svg'
 import { Description, Header, SubHeader } from '../../uiElements/typography/CustomTypography'
 import { SubmitButton } from '../../uiElements/customButtons/CustomButtons'
 import { GlobalWrapper } from '../../styles/styles'
+import { HomeNavigation } from '../../components/Navigation/Navigation'
 
 const HomeWrapper = styled(Box)({
   height: '100vh',
@@ -15,6 +16,8 @@ const MainBlockWrapper = styled(Stack)({
 
 export const HomePage = () => {
   return (
+    <>
+    <HomeNavigation/>
     <HomeWrapper>
       <BGImage style={{ position: 'absolute', top: '0', zIndex: '-1' }} />
       <GlobalWrapper>
@@ -26,5 +29,6 @@ export const HomePage = () => {
       </MainBlockWrapper>
       </GlobalWrapper>
     </HomeWrapper>
+    </>
   )
 }
