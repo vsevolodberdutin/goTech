@@ -6,7 +6,7 @@ import { CheckBoxOtherBlock } from '../../components/CheckBoxOtherBlock'
 import { FreeQuestionBlock } from '../../components/FreeQuestionBlock'
 import { NameBlock } from '../../components/NameBlock'
 
-export const QuestionnairePage = () => {
+export const QuestionaryPage = () => {
   return (
     <>
       <HeaderBlock />
