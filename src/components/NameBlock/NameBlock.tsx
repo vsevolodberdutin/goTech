@@ -1,10 +1,18 @@
 import React from 'react'
-import { styled, Typography } from '@mui/material'
-
-const StyledTypography = styled(Typography)({
-  color: 'red',
-})
+import { Box, Stack, TextField } from '@mui/material'
+import {
+  Description,
+  RedDescription,
+} from '../../uiElements/typography/CustomTypography'
 
 export const NameBlock = () => {
-  return <StyledTypography>NameBlock</StyledTypography>
+  return (
+    <Stack>
+      <Box style={{display:'flex'}}>
+        <Description text="What is your name?" />
+        <RedDescription text="*" />
+      </Box>
+      <TextField variant="standard" placeholder='Your answer'/>
+    </Stack>
+  )
 }

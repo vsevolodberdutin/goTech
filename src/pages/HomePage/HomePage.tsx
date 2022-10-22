@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Stack, styled, Typography } from '@mui/material'
+import { Box, Stack, styled } from '@mui/material'
 import { ReactComponent as BGImage } from '../../assets/images/bg.svg'
 import { Description, Header, SubHeader } from '../../uiElements/typography/CustomTypography'
 import { SubmitButton } from '../../uiElements/customButtons/CustomButtons'

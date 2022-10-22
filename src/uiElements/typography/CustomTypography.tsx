@@ -8,21 +8,39 @@ const StyledHeader = styled(Typography)({
   fontSize: '3.75rem',
 })
 const StyledSubHeader = styled(StyledHeader)({
-    fontWeight: 400,
-    fontSize: '3rem',
+  fontWeight: 400,
+  fontSize: '3rem',
+  marginBottom:'10px',
 })
 const StyledDescription = styled(StyledHeader)({
   fontFamily: 'Poppins',
   fontWeight: 300,
   fontSize: '1rem',
+  marginBottom:'5px',
+})
+const StyledRedDescription = styled(StyledDescription)({
+  color: 'red',
+})
+const StyledHeaderDescription = styled(StyledDescription)({
+  colorWeight: 'bolder',
 })
 
-export const Header: any = ({ text }: any) => {
+interface textProps {
+  text: string
+}
+
+export const Header = ({ text }: textProps) => {
   return <StyledHeader>{text}</StyledHeader>
 }
-export const SubHeader: any = ({ text }: any) => {
+export const SubHeader = ({ text }: textProps) => {
   return <StyledSubHeader>{text}</StyledSubHeader>
 }
-export const Description: any = ({ text }: any) => {
+export const Description = ({ text }: textProps) => {
   return <StyledDescription>{text}</StyledDescription>
+}
+export const RedDescription = ({ text }: textProps) => {
+  return <StyledRedDescription>{text}</StyledRedDescription>
+}
+export const HeaderDescription = ({ text }: textProps) => {
+  return <StyledHeaderDescription>{text}</StyledHeaderDescription>
 }

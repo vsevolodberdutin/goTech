@@ -7,8 +7,7 @@ const CardWrapper = styled(Box)({
   margin: '30px 160px 0',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
-  padding: '22.5px 20.5px',
+  padding: '22.5px 30px',
   ':hover': {
     boxShadow: '-1px 7px 50px -10px rgb(0 0 0 / 10%)',
   },

@@ -1,12 +1,12 @@
-import { Box, Container, styled, Typography } from '@mui/material'
+import { Box, styled } from '@mui/material'
 
 export const NavigationHomeWrapper = styled(Box)({
-  width: '100vw',
+  width: '100%',
   position: 'absolute',
 })
 export const NavigationWrapper = styled(NavigationHomeWrapper)({
-  backgroundColor:'white',
-  boxShadow: '-1px 7px 50px -10px rgb(0 0 0 / 20%)',
+  backgroundColor: 'white',
+  boxShadow: '0px 0px 50px 0px rgb(0 0 0 / 20%)',
 })
 
 export const MenuWrapper = styled(Box)({

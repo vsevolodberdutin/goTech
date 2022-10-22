@@ -1,10 +1,17 @@
+import { Stack } from '@mui/material'
 import React from 'react'
-import { styled, Typography } from "@mui/material";
-
-const StyledTypography = styled(Typography)({
-  color: 'red',
-})
+import {
+  Description,
+  RedDescription,
+  SubHeader,
+} from '../../uiElements/typography/CustomTypography'
 
 export const HeaderBlock = () => {
-  return <StyledTypography>HeaderBlock</StyledTypography>
+  return (
+    <Stack>
+      <SubHeader text="GoTech Questionaire" />
+      <Description text="Show me what you got!" />
+      <RedDescription text="*Required" />
+    </Stack>
+  )
 }

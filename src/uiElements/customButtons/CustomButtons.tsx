@@ -16,6 +16,9 @@ const StyledSubmitButton = styled(StyledButton)({
   color: '#ffffff',
   width: '260px',
   marginTop: '40px',
+  ':hover': {
+    color: '#002e63',
+  },
 })
 
 interface ButtonProps {
