@@ -1,15 +1,17 @@
-import React from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
+import axios, { AxiosResponse } from 'axios'
 import { HeaderBlock } from '../../components/HeaderBlock'
 import { CheckBoxBlock } from '../../components/CheckBoxBlock'
 import { CheckBoxOtherBlock } from '../../components/CheckBoxOtherBlock'
 import { FreeQuestionBlock } from '../../components/FreeQuestionBlock'
 import { NameBlock } from '../../components/NameBlock'
 import { GlobalWrapper } from '../../styles/styles'
-import { Stack, styled } from '@mui/material'
+import { Alert, AlertTitle, Stack, styled } from '@mui/material'
 import { CustomCard } from '../../uiElements/cards/CustomCards'
 import { Navigation } from '../../components/Navigation/Navigation'
 import { SubmitButton } from '../../uiElements/customButtons/CustomButtons'
+import { v4 as uuid } from 'uuid'
+import { useNavigate } from 'react-router-dom'
 
 const QuestionaryWrapper = styled(Stack)({
   paddingTop: '100px',
@@ -20,45 +22,31 @@ const SubmitButtonWrapper = styled(Stack)({
   padding: '0 160px 40px',
 })
 
-// axios.post('http://localhost:3000/users', {
-//     id: 6,
-//     first_name: 'Fred',
-//     last_name: 'Blair',
-//     email: 'freddyb34@gmail.com'
-// }).then(resp => {
-//     console.log(resp.data);
-// }).catch(error => {
-//     console.log(error);
-// });
+export interface UserRegistrationModel {
+  id: number
+  name: string
+  language: string
+  optionalText: string
+  difficulty: string
+}
 
 export const QuestionaryPage = () => {
-  const [inputs, setInputs] = React.useState({
+  const [inputs, setInputs] = useState({
+    id: 0,
     name: '',
     language: '',
     optionalText: '',
     difficulty: '',
   })
+  const navigate = useNavigate()
+  const unique_id = parseInt(uuid())
 
-  // const [state, setState] = useState([
-  //   {
-  //     id: 0,
-  //     name: '',
-  //     language: '',
-  //     optionalText: '',
-  //     difficulty: '',
-  //   },
-  // ])
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const { data } = await axios({
-  //       method: `get`,
-  //       url: `http://localhost:3001/questionnaires`,
-  //     })
-  //     setState(data)
-  //   }
-  //   getData()
-  // }, [])
+  const postData = async (userData: UserRegistrationModel) => {
+    await axios.post<
+      UserRegistrationModel,
+      AxiosResponse<{ accessToken: string }>
+    >('http://localhost:3001/questionnaires', userData)
+  }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.name
@@ -69,7 +57,16 @@ export const QuestionaryPage = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
-    console.log('submit', inputs)
+    const userData = { ...inputs, id: unique_id }
+    if (!inputs.name) {
+      alert('input name!')
+    }
+    if (!inputs.language) {
+      alert('input language!')
+    } else {
+      postData(userData)
+      navigate('/allUsersTable')
+    }
   }
 
   return (

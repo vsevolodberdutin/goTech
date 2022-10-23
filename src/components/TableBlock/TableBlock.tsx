@@ -16,7 +16,7 @@ import TableRow from '@mui/material/TableRow'
 export const TableBlock = () => {
   const [state, setState] = useState([
     {
-      id: 0,
+      id:0,
       name: '',
       language: '',
       optionalText: '',
