@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, styled, Typography } from '@mui/material'
+import { styled, Typography } from '@mui/material'
 
 const StyledHeader = styled(Typography)({
   color: '#070f1a',

@@ -9,7 +9,7 @@ import {
 export const HeaderBlock = () => {
   return (
     <Stack>
-      <SubHeader text="GoTech Questionaire" />
+      <SubHeader text="GoTech Questionnaire" />
       <Description text="Show me what you got!" />
       <RedDescription text="*Required" />
     </Stack>

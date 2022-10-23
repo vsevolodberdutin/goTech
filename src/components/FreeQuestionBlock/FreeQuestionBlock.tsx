@@ -2,7 +2,6 @@ import React from 'react'
 import { Stack, TextField } from '@mui/material'
 import {
   Description,
-  RedDescription,
 } from '../../uiElements/typography/CustomTypography'
 
 interface inputProps {
