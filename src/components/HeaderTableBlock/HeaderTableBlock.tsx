@@ -5,7 +5,7 @@ import { SubHeader } from '../../uiElements/typography/CustomTypography'
 export const HeaderTableBlock = () => {
   return (
     <Stack>
-      <SubHeader text="All users answers table" style={{ marginBottom: '0px' }} />
+      <SubHeader text="All users answers in table" style={{ marginBottom: '0px' }} />
     </Stack>
   )
 }

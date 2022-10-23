@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Stack, styled } from '@mui/material'
 import { ReactComponent as BGImage } from '../../assets/images/bg.svg'
 import { Description, Header, SubHeader } from '../../uiElements/typography/CustomTypography'
-import { SubmitButton } from '../../uiElements/customButtons/CustomButtons'
+import { CallToActionButton } from '../../uiElements/customButtons/CustomButtons'
 import { GlobalWrapper } from '../../styles/styles'
 import { HomeNavigation } from '../../components/Navigation/Navigation'
 
@@ -25,7 +25,7 @@ export const HomePage = () => {
         <Header text='GoTech'/>
         <SubHeader text='Home assignment realization'/>
         <Description text='By Vsevolod Berdutin. For Frontend React Developer position'/>
-        <SubmitButton name='to questionary'/>
+        <CallToActionButton name='to questionary'/>
       </MainBlockWrapper>
       </GlobalWrapper>
     </HomeWrapper>

@@ -31,6 +31,10 @@ export const MenuButton: React.FC<ButtonProps> = ({ name, url = './' }) => {
   const navigate = useNavigate();
   return <StyledButton onClick={()=>navigate(url)}>{name}</StyledButton>
 }
+export const CallToActionButton: React.FC<ButtonProps> = ({ name }) => {
+  const navigate = useNavigate();
+  return <StyledSubmitButton onClick={()=>navigate('/questionary')}>{name}</StyledSubmitButton>
+}
 export const SubmitButton: React.FC<ButtonProps> = ({ name }) => {
   // const navigate = useNavigate();
   return <StyledSubmitButton>{name}</StyledSubmitButton>
