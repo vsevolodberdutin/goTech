@@ -5,11 +5,16 @@ import {
   RedDescription,
 } from '../../uiElements/typography/CustomTypography'
 
-export const FreeQuestionBlock = () => {
+interface inputProps {
+  value: string
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export const FreeQuestionBlock = ({value, onChange}:inputProps) => {
   return (
     <Stack>
       <Description text="What do you like about programing?" />
-      <TextField variant="standard" placeholder="Your answer" />
+      <TextField variant="standard" placeholder="Your answer" name='optionalText' value={value} onChange={onChange}/>
     </Stack>
   )
 }

@@ -37,5 +37,5 @@ export const CallToActionButton: React.FC<ButtonProps> = ({ name }) => {
 }
 export const SubmitButton: React.FC<ButtonProps> = ({ name }) => {
   // const navigate = useNavigate();
-  return <StyledSubmitButton>{name}</StyledSubmitButton>
+  return <StyledSubmitButton type='submit'>{name}</StyledSubmitButton>
 }

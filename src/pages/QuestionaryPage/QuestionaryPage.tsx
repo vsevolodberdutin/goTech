@@ -1,5 +1,5 @@
 import React from 'react'
-
+import axios from 'axios'
 import { HeaderBlock } from '../../components/HeaderBlock'
 import { CheckBoxBlock } from '../../components/CheckBoxBlock'
 import { CheckBoxOtherBlock } from '../../components/CheckBoxOtherBlock'
@@ -20,20 +20,98 @@ const SubmitButtonWrapper = styled(Stack)({
   padding: '0 160px 40px',
 })
 
+// axios.post('http://localhost:3000/users', {
+//     id: 6,
+//     first_name: 'Fred',
+//     last_name: 'Blair',
+//     email: 'freddyb34@gmail.com'
+// }).then(resp => {
+//     console.log(resp.data);
+// }).catch(error => {
+//     console.log(error);
+// });
+
 export const QuestionaryPage = () => {
+  const [inputs, setInputs] = React.useState({
+    name: '',
+    language: '',
+    optionalText: '',
+    difficulty: '',
+  })
+
+  // const [state, setState] = useState([
+  //   {
+  //     id: 0,
+  //     name: '',
+  //     language: '',
+  //     optionalText: '',
+  //     difficulty: '',
+  //   },
+  // ])
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const { data } = await axios({
+  //       method: `get`,
+  //       url: `http://localhost:3001/questionnaires`,
+  //     })
+  //     setState(data)
+  //   }
+  //   getData()
+  // }, [])
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const name = event.target.name
+    const value = event.target.value
+
+    setInputs((values) => ({ ...values, [name]: value }))
+  }
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+    console.log('submit', inputs)
+  }
+
   return (
     <>
       <Navigation />
       <QuestionaryWrapper>
         <GlobalWrapper>
-          <CustomCard children={<HeaderBlock />} />
-          <CustomCard children={<NameBlock />} />
-          <CustomCard children={<CheckBoxBlock />} />
-          <CustomCard children={<FreeQuestionBlock />} />
-          <CustomCard children={<CheckBoxOtherBlock />} />
-          <SubmitButtonWrapper>
-            <SubmitButton name="Submit" />
-          </SubmitButtonWrapper>
+          <form onSubmit={handleSubmit}>
+            <CustomCard children={<HeaderBlock />} />
+            <CustomCard
+              children={
+                <NameBlock value={inputs.name} onChange={handleChange} />
+              }
+            />
+            <CustomCard
+              children={
+                <CheckBoxBlock
+                  value={inputs.language}
+                  onChange={handleChange}
+                />
+              }
+            />
+            <CustomCard
+              children={
+                <FreeQuestionBlock
+                  value={inputs.optionalText}
+                  onChange={handleChange}
+                />
+              }
+            />
+            <CustomCard
+              children={
+                <CheckBoxOtherBlock
+                  value={inputs.difficulty}
+                  onChange={handleChange}
+                />
+              }
+            />
+            <SubmitButtonWrapper>
+              <SubmitButton name="Submit" />
+            </SubmitButtonWrapper>
+          </form>
         </GlobalWrapper>
       </QuestionaryWrapper>
     </>

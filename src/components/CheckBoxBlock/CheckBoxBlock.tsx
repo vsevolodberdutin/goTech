@@ -14,7 +14,12 @@ import {
   RedDescription,
 } from '../../uiElements/typography/CustomTypography'
 
-export const CheckBoxBlock = () => {
+interface inputProps {
+  value: string
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export const CheckBoxBlock = ({value, onChange}:inputProps) => {
   return (
     <Stack>
       <Box style={{ display: 'flex' }}>
@@ -22,7 +27,7 @@ export const CheckBoxBlock = () => {
         <RedDescription text="*" />
       </Box>
       <FormControl>
-        <RadioGroup>
+        <RadioGroup name="language"  value={value} onChange={onChange}>
           <FormControlLabel
             value="JavaScript"
             control={<Radio />}
