@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, styled, Typography } from '@mui/material'
+import { Button, styled } from '@mui/material'
+import {useNavigate} from "react-router-dom"
 
 const StyledButton = styled(Button)({
   height: 46,
@@ -22,12 +23,15 @@ const StyledSubmitButton = styled(StyledButton)({
 })
 
 interface ButtonProps {
-  name: string
+  name: string,
+  url?: string,
 }
 
-export const MenuButton: React.FC<ButtonProps> = ({ name }) => {
-  return <StyledButton>{name}</StyledButton>
+export const MenuButton: React.FC<ButtonProps> = ({ name, url = './' }) => {
+  const navigate = useNavigate();
+  return <StyledButton onClick={()=>navigate(url)}>{name}</StyledButton>
 }
 export const SubmitButton: React.FC<ButtonProps> = ({ name }) => {
+  // const navigate = useNavigate();
   return <StyledSubmitButton>{name}</StyledSubmitButton>
 }

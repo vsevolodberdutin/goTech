@@ -10,13 +10,13 @@ const StyledHeader = styled(Typography)({
 const StyledSubHeader = styled(StyledHeader)({
   fontWeight: 400,
   fontSize: '3rem',
-  marginBottom:'10px',
+  marginBottom: '10px',
 })
 const StyledDescription = styled(StyledHeader)({
   fontFamily: 'Poppins',
   fontWeight: 300,
   fontSize: '1rem',
-  marginBottom:'5px',
+  marginBottom: '5px',
 })
 const StyledRedDescription = styled(StyledDescription)({
   color: 'red',
@@ -27,13 +27,14 @@ const StyledHeaderDescription = styled(StyledDescription)({
 
 interface textProps {
   text: string
+  style?: { marginBottom: string }
 }
 
 export const Header = ({ text }: textProps) => {
   return <StyledHeader>{text}</StyledHeader>
 }
-export const SubHeader = ({ text }: textProps) => {
-  return <StyledSubHeader>{text}</StyledSubHeader>
+export const SubHeader = ({ text, style }: textProps) => {
+  return <StyledSubHeader style={style}>{text}</StyledSubHeader>
 }
 export const Description = ({ text }: textProps) => {
   return <StyledDescription>{text}</StyledDescription>

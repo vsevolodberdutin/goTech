@@ -20,3 +20,7 @@ interface CardProps {
 export const CustomCard: React.FC<CardProps> = ({ children }) => {
   return <CardWrapper>{children}</CardWrapper>
 }
+
+export const CustomTableCard: React.FC<CardProps> = ({ children }) => {
+  return <CardWrapper style={{marginBottom:'60px'}}>{children}</CardWrapper>
+}
